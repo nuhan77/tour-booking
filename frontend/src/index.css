@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --font-stylish: "Dancing Script", cursive;
+  --color-main-50: #feaa0c;
+}

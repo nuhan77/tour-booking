@@ -1,0 +1,68 @@
+.active {
+  color: rgb(254, 176, 31);
+}
+.bg-main {
+  background: rgb(236, 247, 253);
+}
+.color-main {
+  color: rgb(254, 176, 31);
+}
+.bg-color-main {
+  background: #feaa0c;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}
+
+#planet {
+  animation: rotate;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sticy {
+  height: 5em;
+  width: 100%;
+  position: sticky;
+  box-shadow: 3px 3px 8px -3px rgba(0, 0, 0, 0.75);
+  z-index: 99;
+}
+button {
+  cursor: pointer;
+}
+
+#allToursBg {
+  background-image: url("./assets/images/all-tours.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slider-container {
+  display: inline-block;
+}
