@@ -31,7 +31,7 @@ export const ContextProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
-  const backendURL = "http://localhost:3000/api";
+  const backendURL = "https://tour-booking-backend-p1kb.onrender.com/api";
 
   const registerUser = async (data) => {
     setIsLoading(true);
