@@ -81,7 +81,7 @@ export const getUserInfo = async (req, res) => {
 export const getBookingInfo = async (req, res) => {
   try {
     const user = req.user;
-    const bookings = await Booking.find({ user: user._id }).populate("tour");
+    const bookings = await Booking.find({ user: user._id }).populate("tour").sort({ createdAt: -1 });
     return succussResponse(res, 200, "User info fetched successfully", {
       bookings,
     });

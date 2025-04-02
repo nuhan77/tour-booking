@@ -17,6 +17,7 @@ import { useLocation } from "react-router-dom";
 import { useMyContext } from "../contexts/Context";
 import LoadingButton from "../components/LoadingButton";
 
+
 function TourDetails() {
   const {
     getSingleTour,
@@ -64,11 +65,11 @@ function TourDetails() {
 
   return (
     <div className="p-2 sm:p-4">
-      {/* {isPageLoading ? (
+      {isPageLoading ? (
         <div className="flexCenter h-[calc(100vh-5em)]">
           <Lottie className="" animationData={loadingAnimation} loop={true} />
         </div>
-      ) : ( */}
+      ) : (
         <div className="flex flex-col md:flex-row gap-4 w-auto">
           <div>
             <img className="rounded-md shadow-md" src={tour?.photo} alt="" />
@@ -292,7 +293,7 @@ function TourDetails() {
             </div>
           </div>
         </div>
-      {/* )} */}
+      )}
     </div>
   );
 }

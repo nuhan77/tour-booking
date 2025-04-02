@@ -253,6 +253,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   const bookTour = async (data) => {
+    setIsLoading(true);
     try {
       const res = await axios.post(`${backendURL}/tours/book`, data, {
         headers: { token: ` ${localStorage.getItem("token")}` },
@@ -263,6 +264,7 @@ export const ContextProvider = ({ children }) => {
         navigate("/unauthorized");
       return toast.error(error.response.data.message);
     }
+    setIsLoading(false);
   };
 
   const getBookingInfo = async () => {

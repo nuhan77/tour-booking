@@ -94,9 +94,9 @@ const SingleBooking = ({ booking, isAdmin, bookingStatus }) => {
         <div className="grid gap-2 grid-cols-2 lg:grid-cols-3">
           <p className="font-semibold text-slate-600">{formattedDate(booking?.createdAt)}</p>
           <p>Gusts: {booking?.guests}</p>
-          <p>Price: {(booking?.tour?.price * booking?.guests).toFixed(2)}</p>
-          <p>Others: {(booking?.serviceCharge + booking?.tax).toFixed(2)}</p>
-          <p>Total: {(booking?.totalPrice).toFixed(2)}</p>
+          <p>Price: ${(booking?.tour?.price * booking?.guests).toFixed(2)}</p>
+          <p>Others: ${(booking?.serviceCharge + booking?.tax).toFixed(2)}</p>
+          <p>Total: ${(booking?.totalPrice).toFixed(2)}</p>
           {isAdmin && <p>Name: {booking?.fullName}</p>}
           {isAdmin && <p>Email: {booking?.email}</p>}
           {isAdmin && <p>Phone: {booking?.phone}</p>}

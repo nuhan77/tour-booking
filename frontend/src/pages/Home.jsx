@@ -32,9 +32,11 @@ import { useEffect, useState } from "react";
 
 import Popup from "reactjs-popup";
 import { IoMdClose } from "react-icons/io";
+import Lottie from "lottie-react";
+import loadingAnimation from "./../assets/loading.json";
 
 function Home() {
-  const { user, getTours, getFeaturedTour } = useMyContext();
+  const { user, isPageLoading, getFeaturedTour } = useMyContext();
   const [featuredTours, setFeaturedTours] = useState([]);
 
   const getData = async () => {
@@ -71,8 +73,7 @@ function Home() {
   return (
     <div className="min-h-screen flexCenter">
       <div className="">
-
-      {/* HERO SECTION START */}
+        {/* HERO SECTION START */}
 
         <div className="flex p-4 gap-4">
           <RoundedFull text="explore the world with us" />
@@ -115,8 +116,7 @@ function Home() {
           </div>
         </div>
 
-              {/* HERO SECTION END */}
-
+        {/* HERO SECTION END */}
 
         <div className="flex justify-center px-4 mt-8 md:justify-start w-full">
           <SearchBar />
@@ -178,7 +178,6 @@ function Home() {
         </div>
         {/*/..................SERVICES END.............../*/}
 
-
         {/*/..................FEATURED TOURS START.............../*/}
 
         <div className="flex flex-col px-4 mt-12 items-center">
@@ -189,14 +188,19 @@ function Home() {
             Our featured tours
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            {featuredTours?.map((tour) => (
-              <TourCard key={tour._id} tour={tour} />
-            ))}
-          </div>
+          {isPageLoading ? (
+            <div className="flexCenter w-screen">
+              <Lottie animationData={loadingAnimation} loop={true} />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+              {featuredTours?.map((tour) => (
+                <TourCard key={tour._id} tour={tour} />
+              ))}
+            </div>
+          )}
         </div>
         {/*/..................FEATURED TOURS END.............../*/}
-
 
         {/*/..................EXPERIENCE START.............../*/}
 
@@ -264,7 +268,6 @@ function Home() {
 
         {/*/..................REVIEWS END.............../*/}
 
-
         {/*/..................NEWSLETTER START.............../*/}
 
         <div className=" bg-cyan-500 flex flex-col lg:flex-row justify-between items-center py-13 px-4 mt-12">
@@ -320,7 +323,7 @@ function Home() {
             padding: "1.5em",
             borderRadius: "10px",
             maxWidth: "20em",
-            minWidth:"15em"
+            minWidth: "15em",
           }}
         >
           <IoMdClose

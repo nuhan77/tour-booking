@@ -42,20 +42,20 @@ const BookNow = ({ tour }) => {
       toast.error("All fields are required");
       return;
     }
-    if(bookingInfo.guests < 1) {
+    if (bookingInfo.guests < 1) {
       toast.error("guests must be greater than 0");
       return;
     }
-    if(bookingInfo.guests > tour.maxGroupSize) {
+    if (bookingInfo.guests > tour.maxGroupSize) {
       toast.error("guests must be less than or equal to max group size");
       return;
     }
     setIsOpen(true);
   };
 
-  const handelTourBooking = () => {
-    setIsOpen2(true);
-    bookTour({ ...bookingInfo,
+  const handelTourBooking = async () => {
+    await bookTour({
+      ...bookingInfo,
       tour: tour._id,
       price: tour.price,
       tax: (tour?.price * bookingInfo.guests * 0.03).toFixed(2),
@@ -65,7 +65,8 @@ const BookNow = ({ tour }) => {
         tour?.price * 0.1 +
         tour?.price * bookingInfo.guests * 0.03
       ).toFixed(2),
-      });
+    });
+    setIsOpen2(true);
   };
 
   const handelInputChange = (e) => {
@@ -183,7 +184,7 @@ const BookNow = ({ tour }) => {
                   padding: "1.5em",
                   borderRadius: "10px",
                   maxWidth: "20em",
-                  minWidth:"15em"
+                  minWidth: "15em",
                 }}
               >
                 <IoMdClose
@@ -213,12 +214,12 @@ const BookNow = ({ tour }) => {
                       Are you sure to book this tour?
                     </p>
                     <div className="flex justify-end gap-2 w-full">
-                      <button
+                      <LoadingButton
                         onClick={handelTourBooking}
-                        className="bg-main-50 mt-4 text-white font-bold py-2 px-4 rounded"
-                      >
-                        Book Now
-                      </button>
+                        buttonClass="bg-main-50 mt-4 text-white font-bold rounded"
+                        text={"Book Now"}
+                      />
+
                       <button
                         onClick={() => setIsOpen(false)}
                         className="bg-red-600 mt-4 text-white font-bold py-2 px-4 rounded"

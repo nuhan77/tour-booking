@@ -218,7 +218,7 @@ export const bookTour = async (req, res) => {
 
 export const getAllBookings = async (req, res) => {
   try {
-    const bookings = await Booking.find({}).populate("tour").populate("user");
+    const bookings = await Booking.find({}).populate("tour").populate("user").sort({ createdAt: -1 });
     return succussResponse(res, 200, "Bookings fetched successfully", {
       bookings,
     });
