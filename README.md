@@ -1,8 +1,7 @@
+# 🌍 Tour Booking Website (MERN Stack) 🚀
+
 ## 🚀 Live Preview
 🔗 [Click here to view the live app](https://tour-booking-frontend.onrender.com)
-
-
-# 🌍 Tour Booking Website (MERN Stack) 🚀
 
 ![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)
 ![Node.js](https://img.shields.io/badge/Backend-Node.js-green?logo=node.js)
