@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useMyContext } from "../contexts/Context";
+import Lottie from "lottie-react";
+import loadingAnimation from "./../assets/loading.json";
 
 function Bookings() {
-  const { getBookingInfo, getAllBookings } = useMyContext();
+  const { getBookingInfo, getAllBookings, isPageLoading } = useMyContext();
   const [bookings, setBookings] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -19,20 +21,25 @@ function Bookings() {
     };
     getBookings();
   }, []);
-  // console.log(bookings);
 
   return (
     <div className="min-h-[calc(100vh-5em)] my-24 w-full ">
-      <div className="w-[90%] max-w-[60em] m-auto grid gap-4 grid-rows-1 ">
-        {bookings?.map((booking) => (
-          <SingleBooking
-            key={booking._id}
-            booking={booking}
-            isAdmin={isAdmin}
-            bookingStatus={booking?.status}
-          />
-        ))}
-      </div>
+      {isPageLoading ? (
+        <div className="flexCenter h-full w-full">
+          <Lottie animationData={loadingAnimation} loop={true} />
+        </div>
+      ) : (
+        <div className="w-[90%] max-w-[60em] m-auto grid gap-4 grid-rows-1 ">
+          {bookings?.map((booking) => (
+            <SingleBooking
+              key={booking._id}
+              booking={booking}
+              isAdmin={isAdmin}
+              bookingStatus={booking?.status}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -71,9 +78,24 @@ const SingleBooking = ({ booking, isAdmin, bookingStatus }) => {
               value={status}
               onChange={handleStatusChange}
             >
-              <option className="bg-white text-black outline-none" value="pending">Pending</option>
-              <option className="bg-white text-black outline-none" value="approved">Approved</option>
-              <option className="bg-white text-black outline-none" value="rejected">Rejected</option>
+              <option
+                className="bg-white text-black outline-none"
+                value="pending"
+              >
+                Pending
+              </option>
+              <option
+                className="bg-white text-black outline-none"
+                value="approved"
+              >
+                Approved
+              </option>
+              <option
+                className="bg-white text-black outline-none"
+                value="rejected"
+              >
+                Rejected
+              </option>
             </select>
           ) : (
             <p
@@ -90,17 +112,19 @@ const SingleBooking = ({ booking, isAdmin, bookingStatus }) => {
           )}
         </div>
       </div>
-        <p>{booking?.tour?.title}</p>
-        <div className="grid gap-2 grid-cols-2 lg:grid-cols-3">
-          <p className="font-semibold text-slate-600">{formattedDate(booking?.createdAt)}</p>
-          <p>Gusts: {booking?.guests}</p>
-          <p>Price: ${(booking?.tour?.price * booking?.guests).toFixed(2)}</p>
-          <p>Others: ${(booking?.serviceCharge + booking?.tax).toFixed(2)}</p>
-          <p>Total: ${(booking?.totalPrice).toFixed(2)}</p>
-          {isAdmin && <p>Name: {booking?.fullName}</p>}
-          {isAdmin && <p>Email: {booking?.email}</p>}
-          {isAdmin && <p>Phone: {booking?.phone}</p>}
-        </div>
+      <p>{booking?.tour?.title}</p>
+      <div className="grid gap-2 grid-cols-2 lg:grid-cols-3">
+        <p className="font-semibold text-slate-600">
+          {formattedDate(booking?.createdAt)}
+        </p>
+        <p>Gusts: {booking?.guests}</p>
+        <p>Price: ${(booking?.tour?.price * booking?.guests).toFixed(2)}</p>
+        <p>Others: ${(booking?.serviceCharge + booking?.tax).toFixed(2)}</p>
+        <p>Total: ${(booking?.totalPrice).toFixed(2)}</p>
+        {isAdmin && <p>Name: {booking?.fullName}</p>}
+        {isAdmin && <p>Email: {booking?.email}</p>}
+        {isAdmin && <p>Phone: {booking?.phone}</p>}
+      </div>
     </div>
   );
 };

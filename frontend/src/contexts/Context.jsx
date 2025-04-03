@@ -268,6 +268,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   const getBookingInfo = async () => {
+    setIsPageLoading(true);
     try {
       if (!localStorage.getItem("token")) return toast.error("Unauthorized");
       const res = await axios.get(`${backendURL}/users/bookings`, {
@@ -279,10 +280,13 @@ export const ContextProvider = ({ children }) => {
       if (error.response.data.message == "Unauthorized")
         navigate("/unauthorized");
       return toast.error(error.response.data.message);
+    } finally {
+      setIsPageLoading(false);
     }
   };
 
   const getAllBookings = async () => {
+    setIsPageLoading(true);
     try {
       const res = await axios.get(`${backendURL}/tours/bookings`, {
         headers: { token: ` ${localStorage.getItem("token")}` },
@@ -293,6 +297,8 @@ export const ContextProvider = ({ children }) => {
       if (error.response.data.message == "Unauthorized")
         navigate("/unauthorized");
       return toast.error(error.response.data.message);
+    } finally {
+      setIsPageLoading(false);
     }
   };
 

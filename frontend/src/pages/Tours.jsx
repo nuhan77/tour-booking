@@ -25,7 +25,7 @@ function Tours({ edit }) {
   const { pathname } = useLocation();
 
   const handelScroll = () => {
-    const { offsetHeight, scrollTop, scrollHeight, search } = e.target;
+    const { offsetHeight, scrollTop, scrollHeight } = e.target;
 
     if (offsetHeight + scrollTop + 1 >= scrollHeight) {
       console.log("first");
