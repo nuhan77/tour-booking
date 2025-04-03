@@ -189,7 +189,7 @@ function Home() {
           </p>
 
           {isPageLoading ? (
-            <div className="flexCenter w-screen">
+            <div className="flexCenter w-full">
               <Lottie animationData={loadingAnimation} loop={true} />
             </div>
           ) : (
