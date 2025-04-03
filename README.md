@@ -1,13 +1,14 @@
 # 🌍 Tour Booking Website (MERN Stack) 🚀
 
-## 🚀 Live Preview
-🔗 [Click here to view the live app](https://tour-booking-frontend.onrender.com)
 
 ![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)
 ![Node.js](https://img.shields.io/badge/Backend-Node.js-green?logo=node.js)
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-brightgreen?logo=mongodb)
 ![Express](https://img.shields.io/badge/Framework-Express-black?logo=express)
 ![JWT](https://img.shields.io/badge/Auth-JWT-orange?logo=jsonwebtokens)
+
+## 🚀 Live Preview
+🔗 [Click here to view the live app](https://tour-booking-frontend.onrender.com)
 
 A **fully responsive** tour booking web application built using the **MERN stack**. It provides users with an intuitive platform to browse, search, and book tours, while admins have full control over managing tours and booking requests. 🌎✈️  
 
