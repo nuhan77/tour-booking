@@ -37,16 +37,7 @@ A **fully responsive** tour booking web application built using the **MERN stack
 | **State Management** | React Context API |
 | **Styling** | Tailwind CSS |
 
-## 📸 Screenshots  
 
-### 🔹 Home Page  
-![Home Page](./screenshots/homepage.png)  
-
-### 🔹 Tour Details  
-![Tour Details](./screenshots/tour-details.png)  
-
-### 🔹 Admin Dashboard  
-![Admin Dashboard](./screenshots/admin-dashboard.png)  
 
 ## ⚙️ Installation & Setup
 
