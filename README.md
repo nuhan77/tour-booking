@@ -39,11 +39,5 @@ A **fully responsive** tour booking web application built using the **MERN stack
 
 
 
-## ⚙️ Installation & Setup
-
-1. **Clone the repository**  
-   ```sh
-   git clone https://github.com/your-username/tour-booking.git
-   cd tour-booking
 
 
