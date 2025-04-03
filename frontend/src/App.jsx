@@ -3,7 +3,7 @@ import "./App.css";
 import Layout from "./layouts/Layout";
 
 function App() {
-  return (
+return (
     <div className="bg-main ">
       <Layout />
       <ToastContainer />

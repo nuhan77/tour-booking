@@ -56,7 +56,7 @@ function Tours({ edit }) {
       </div>
       <div className="flexCenter  mx-4 flex-col mb-12">
         {isPageLoading ? (
-          <div className="flexCenter w-screen">
+          <div className="flexCenter w-full">
             <Lottie animationData={loadingAnimation} loop={true} />
           </div>
         ) : (
