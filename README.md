@@ -1,4 +1,4 @@
-# 🌍 Tour Booking Website (MERN Stack) 🚀
+# 🌍 Travel (Tour Booking Website using MERN Stack) 🚀
 
 
 ![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)
