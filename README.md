@@ -10,7 +10,6 @@
 ## 🚀 Live Preview
 🔗 [Click here to view the live app](https://tour-booking-frontend.onrender.com)
 
-[![Watch the demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 
 A **fully responsive** tour booking web application built using the **MERN stack**. It provides users with an intuitive platform to browse, search, and book tours, while admins have full control over managing tours and booking requests. 🌎✈️  
 
